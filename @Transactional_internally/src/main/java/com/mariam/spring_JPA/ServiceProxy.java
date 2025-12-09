@@ -4,21 +4,23 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 
 import org.aopalliance.intercept.MethodInvocation;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 import com.mariam.spring_JPA.entity.Student;
 import com.mariam.spring_JPA.repository.StudentDaoImpl;
 
-
-public class ServiceProxy extends Service{
+@Component
+public class ServiceProxy extends StudentService{
 
 	
 	private TransactionInterceptor interceptor;
-	private Service targetClass;
+	
+	private StudentService targetClass;
 	
 	public ServiceProxy(StudentDaoImpl studentDaoImpl
 						, TransactionInterceptor interceptor
-						, Service service) {
+						, StudentService service) {
 		
 		super(studentDaoImpl);
 		this.interceptor = interceptor;
@@ -31,7 +33,7 @@ public class ServiceProxy extends Service{
 		
 		try {
 			
-			// use Reflectio Metod to get metadata of the target method 
+			// use Reflection Method to get metadata of the target method 
 			Method method = targetClass.getClass().getMethod("saveStudent", Student.class);
 			
 			MethodInvocation invocation = new MethodInvocation() {

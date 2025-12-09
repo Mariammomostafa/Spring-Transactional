@@ -16,6 +16,7 @@ public class StudentDaoImpl {
 	@PersistenceContext(unitName = "mysqldb")
 	EntityManager entityManager;
 	
+	
 	@Transactional
 	public void saveStudent(Student student) {
 
@@ -24,7 +25,7 @@ public class StudentDaoImpl {
 		
 	}
 	
-	@Transactional
+	
 	public List<Student> getAllStudent() {
 
 	    List<Student> list = entityManager.createQuery("from Student" , Student.class).getResultList();
@@ -33,7 +34,7 @@ public class StudentDaoImpl {
 		return list;
 	}
 	
-	@Transactional
+
 	public Student getStudent(int id) {
 
 	    Student student = entityManager.find(Student.class, id);	

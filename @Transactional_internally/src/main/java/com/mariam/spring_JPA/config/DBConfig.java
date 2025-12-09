@@ -34,7 +34,7 @@ public class DBConfig {
 	LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(datasource());
-		emf.setPackagesToScan("com.mariam.spring_JPA_hibernate.entity");
+		emf.setPackagesToScan("com.mariam.spring_JPA.entity");
 		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		emf.setPersistenceUnitName("mysqldb");
 		
