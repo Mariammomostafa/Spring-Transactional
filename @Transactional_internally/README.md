@@ -7,6 +7,13 @@
 - create EntityManager obj from EntityManagerFactory obj
 - use EntityManager obj to apply CRUD operations
 - create bean of TransactionManager & use @Transactional annotation to let spring mange transactions
+- use @Transactional annotation ONLY in Dao layer
+- instead of using @Transactional annotation in Serivce layer , will do it manually through :
+    - create Proxy (ServiceProxy) class of Service layer (StudentService)
+    - inside overriden method of Proxy :
+         - use Reflection Method to get metadata of the target method
+         - create anonymous inner class of MethodInvocation interface which will be passed to TransactionInterceptor obj
+         - this Proxy class uses TransactionInterceptor to invok the actual target method
 - create Repository layer in which using EntityManager to apply CRUD operations
 
 
