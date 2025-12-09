@@ -12,8 +12,8 @@
     - create Proxy (ServiceProxy) class of Service layer (StudentService)
     - inside overriden method of Proxy :
          - use Reflection Method to get metadata of the target method
-         - create anonymous inner class of MethodInvocation interface which will be passed to TransactionInterceptor obj
          - this Proxy class uses TransactionInterceptor to invok the actual target method
+         - create anonymous inner class of MethodInvocation interface which will be passed to TransactionInterceptor obj
 - create Repository layer in which using EntityManager to apply CRUD operations
 
 
