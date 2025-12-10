@@ -21,7 +21,7 @@ public class App {
     	
     	ServiceProxy serviceProxy = container.getBean("serviceProxy",ServiceProxy.class );
 
-		Student s = new Student("somaa" , 100);
+		Student s = new Student("hanan" , 100);
 		serviceProxy.saveStudent(s);
 		
 		List<Student> students = serviceProxy.getAllStudents();
